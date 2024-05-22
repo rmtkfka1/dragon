@@ -207,14 +207,14 @@ void CShader::Render(ID3D12GraphicsCommandList* pd3dCommandList, CCamera* pCamer
 	OnPrepareRender(pd3dCommandList);
 }
 
-CDiffusedShader::CDiffusedShader()
+CPlayerShader::CPlayerShader()
 {
 }
-CDiffusedShader::~CDiffusedShader()
+CPlayerShader::~CPlayerShader()
 {
 }
 
-D3D12_INPUT_LAYOUT_DESC CDiffusedShader::CreateInputLayout()
+D3D12_INPUT_LAYOUT_DESC CPlayerShader::CreateInputLayout()
 {
 	UINT nInputElementDescs = 2;
 	D3D12_INPUT_ELEMENT_DESC* pd3dInputElementDescs = new
@@ -229,18 +229,18 @@ D3D12_INPUT_LAYOUT_DESC CDiffusedShader::CreateInputLayout()
 	return(d3dInputLayoutDesc);
 }
 
-D3D12_SHADER_BYTECODE CDiffusedShader::CreateVertexShader(ID3DBlob** ppd3dShaderBlob)
+D3D12_SHADER_BYTECODE CPlayerShader::CreateVertexShader(ID3DBlob** ppd3dShaderBlob)
 {
 	return(CShader::CompileShaderFromFile((WCHAR*)L"Shaders.hlsl", "VSDiffused", "vs_5_1",
 		ppd3dShaderBlob));
 }
-D3D12_SHADER_BYTECODE CDiffusedShader::CreatePixelShader(ID3DBlob** ppd3dShaderBlob)
+D3D12_SHADER_BYTECODE CPlayerShader::CreatePixelShader(ID3DBlob** ppd3dShaderBlob)
 {
 	return(CShader::CompileShaderFromFile((WCHAR*)L"Shaders.hlsl", "PSDiffused", "ps_5_1",
 		ppd3dShaderBlob));
 }
 
-void CDiffusedShader::CreateShader(ID3D12Device* pd3dDevice, ID3D12RootSignature
+void CPlayerShader::CreateShader(ID3D12Device* pd3dDevice, ID3D12RootSignature
 	* pd3dGraphicsRootSignature)
 {
 	m_nPipelineStates = 1;

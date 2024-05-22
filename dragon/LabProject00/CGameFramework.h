@@ -2,6 +2,7 @@
 #include "CGameTimer.h"
 #include "CScene.h"
 #include "CCamera.h"
+#include "CPlayer.h"
 
 class CGameFramework
 {
@@ -83,6 +84,9 @@ public:
 	UINT64 m_nFenceValues[m_nSwapChainBuffers];
 	CScene* m_pScene;
 	CCamera* m_pCamera = NULL;
+	CPlayer* m_pPlayer = NULL;
+	POINT m_ptOldCursorPos;
+
 
 
 };

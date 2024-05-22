@@ -48,11 +48,11 @@ protected:
 	int m_nPipelineStates = 0;
 };
 
-class CDiffusedShader : public CShader
+class CPlayerShader : public CShader
 {
 public:
-	CDiffusedShader();
-	virtual ~CDiffusedShader();
+	CPlayerShader();
+	virtual ~CPlayerShader();
 	virtual D3D12_INPUT_LAYOUT_DESC CreateInputLayout();
 	virtual D3D12_SHADER_BYTECODE CreateVertexShader(ID3DBlob** ppd3dShaderBlob);
 	virtual D3D12_SHADER_BYTECODE CreatePixelShader(ID3DBlob** ppd3dShaderBlob);
