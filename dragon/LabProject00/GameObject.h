@@ -25,7 +25,24 @@ public:
 	virtual void OnPrepareRender();
 	virtual void Render(ID3D12GraphicsCommandList* pd3dCommandList, CCamera* pCamera);
 	void Rotate(XMFLOAT3* pxmf3Axis, float fAngle);
+	void Rotate(float fPitch, float fYaw, float fRoll);
+	//상수 버퍼를 생성한다. 
+	virtual void CreateShaderVariables(ID3D12Device *pd3dDevice, ID3D12GraphicsCommandList *pd3dCommandList);
+	//상수 버퍼의 내용을 갱신한다. 
+	virtual void UpdateShaderVariables(ID3D12GraphicsCommandList *pd3dCommandList);
+	virtual void ReleaseShaderVariables();
 
+	XMFLOAT3 GetPosition();
+	XMFLOAT3 GetLook();
+	XMFLOAT3 GetUp() ;
+	XMFLOAT3 GetRight();
+	//게임 객체의 위치를 설정한다. 
+	void SetPosition(float x, float y, float z);
+	void SetPosition(XMFLOAT3 xmf3Position);
+	//게임 객체를 로컬 x-축, y-축, z-축 방향으로 이동한다.
+	void MoveStrafe(float fDistance = 1.0f);
+	void MoveUp(float fDistance = 1.0f);
+	void MoveForward(float fDistance = 1.0f);
 };
 
 class CRotatingObject : public CGameObject

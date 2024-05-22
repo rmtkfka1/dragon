@@ -34,7 +34,7 @@ void CCamera::SetScissorRect(LONG xLeft, LONG yTop, LONG xRight, LONG yBottom)
 void CCamera::GenerateProjectionMatrix(float fNearPlaneDistance, float fFarPlaneDistance,
 	float fAspectRatio, float fFOVAngle)
 {
-	m_xmf4x4Projection = Matrix4x4::PerspectiveFovLH(XMConvertToRadians(fFOVAngle),
+	m_xmf4x4Projection = Matrix4x4::PerspectiveFovLH(  (fFOVAngle),
 		fAspectRatio, fNearPlaneDistance, fFarPlaneDistance);
 }
 void CCamera::GenerateViewMatrix(XMFLOAT3 xmf3Position, XMFLOAT3 xmf3LookAt, XMFLOAT3
